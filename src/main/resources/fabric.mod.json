@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "jesus-addon",
+  "version": "${version}",
+  "name": "Jesus",
+  "authors": [
+    "Soda5601"
+  ],
+  "environment": "client",
+  "entrypoints": {
+    "meteor": [
+      "me.soda.jesus.Addon"
+    ]
+  },
+  "mixins": [
+    "jesus.mixins.json"
+  ],
+  "depends": {
+    "java": ">=17",
+    "minecraft": ">=${mc_version}",
+    "meteor-client": "*"
+  }
+}

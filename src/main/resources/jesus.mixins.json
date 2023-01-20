@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "me.soda.jesus.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "BatEntityMixin",
+    "BetterTooltipsMixin",
+    "DeathScreenMixin",
+    "MainMixin",
+    "MusicTrackerMixin",
+    "ScreenshotRecorderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
