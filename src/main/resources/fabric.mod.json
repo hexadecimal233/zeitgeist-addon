@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "jesus-addon",
+  "id": "random-addon",
   "version": "${version}",
-  "name": "Jesus",
+  "name": "Random Addon",
   "authors": [
     "Soda5601"
   ],
@@ -13,7 +13,7 @@
     ]
   },
   "mixins": [
-    "jesus.mixins.json"
+    "random-addon.mixins.json"
   ],
   "depends": {
     "java": ">=17",

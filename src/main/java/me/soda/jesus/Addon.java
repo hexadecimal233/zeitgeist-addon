@@ -20,8 +20,12 @@ public class Addon extends MeteorAddon {
     @Override
     public void onInitialize() {
         // Modules
-        // Allah
         Modules modules = Modules.get();
+
+        // My
+        modules.add(new HackerDetector());
+
+        // Allah
         modules.add(new BackTP());
         modules.add(new Bot());
         modules.add(new ConsoleFlood());
