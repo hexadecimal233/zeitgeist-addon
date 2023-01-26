@@ -20,7 +20,7 @@ import java.io.IOException;
 import static meteordevelopment.meteorclient.MeteorClient.mc;
 
 public class ImageHud extends HudElement {
-    public static final HudElementInfo<ImageHud> INFO = new HudElementInfo<>(Hud.GROUP, "image-hud(jesus)", "Displays images.", ImageHud::create);
+    public static final HudElementInfo<ImageHud> INFO = new HudElementInfo<>(Hud.GROUP, "image-hud", "Displays images.", ImageHud::create);
 
     private static ImageHud create() {
         return new ImageHud(INFO);

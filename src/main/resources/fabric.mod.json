@@ -9,7 +9,7 @@
   "environment": "client",
   "entrypoints": {
     "meteor": [
-      "me.soda.jesus.Addon"
+      "me.soda.randomaddon.Random"
     ]
   },
   "mixins": [
