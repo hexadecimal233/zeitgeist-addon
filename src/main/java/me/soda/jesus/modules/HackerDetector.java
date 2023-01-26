@@ -71,7 +71,7 @@ public class HackerDetector extends Module {
             for (String s : playerCache) {
                 if (!oldPlayers.contains(s)) {
                     if (response.contains(s)) {
-                        warning("%s might be a hacker!");
+                        warning("%s might be a hacker!", s);
                     }
                 }
             }
