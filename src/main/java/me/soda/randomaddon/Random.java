@@ -24,6 +24,7 @@ public class Random extends MeteorAddon {
 
         // My
         modules.add(new HackerDetector());
+        modules.add(new Jetpack());
 
         // Allah
         modules.add(new BackTP());
