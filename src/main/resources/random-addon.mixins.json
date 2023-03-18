@@ -7,7 +7,6 @@
     "BetterTooltipsMixin",
     "DeathScreenMixin",
     "MainMixin",
-    "MusicTrackerMixin",
     "ScreenshotRecorderMixin"
   ],
   "injectors": {

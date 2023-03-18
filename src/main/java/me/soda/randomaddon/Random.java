@@ -4,11 +4,9 @@ import me.soda.randomaddon.commands.BloatCommand;
 import me.soda.randomaddon.commands.RenameCommand;
 import me.soda.randomaddon.commands.StopCommand;
 import me.soda.randomaddon.commands.VoidCommand;
-import me.soda.randomaddon.hud.ImageHud;
 import me.soda.randomaddon.modules.*;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.systems.commands.Commands;
-import meteordevelopment.meteorclient.systems.hud.Hud;
 import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import net.minecraft.item.ItemStack;
@@ -42,8 +40,6 @@ public class Random extends MeteorAddon {
         modules.add(new AutoMessage());
         // Bidoof
         modules.add(new PingSpoofer());
-        modules.add(new Jukebox());
-        modules.add(new SpamPlus());
         // Mathax
         modules.add(new Sniper());
 
@@ -55,10 +51,6 @@ public class Random extends MeteorAddon {
         // Greteor
         commands.add(new RenameCommand());
         commands.add(new VoidCommand());
-
-        //Bidoof
-        Hud hud = Hud.get();
-        hud.register(ImageHud.INFO);
     }
 
     @Override
