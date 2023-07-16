@@ -1,4 +1,4 @@
-package me.soda.randomaddon.mixins;
+package me.onlyrain.randomaddon.mixins;
 
 import meteordevelopment.meteorclient.events.game.ItemStackTooltipEvent;
 import meteordevelopment.meteorclient.settings.BoolSetting;

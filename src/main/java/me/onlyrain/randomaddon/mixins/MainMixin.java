@@ -1,4 +1,4 @@
-package me.soda.randomaddon.mixins;
+package me.onlyrain.randomaddon.mixins;
 
 import net.minecraft.client.main.Main;
 import org.spongepowered.asm.mixin.Mixin;

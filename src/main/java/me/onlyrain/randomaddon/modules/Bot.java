@@ -1,6 +1,6 @@
-package me.soda.randomaddon.modules;
+package me.onlyrain.randomaddon.modules;
 
-import me.soda.randomaddon.Random;
+import me.onlyrain.randomaddon.Random;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.IntSetting;
 import meteordevelopment.meteorclient.settings.Setting;
@@ -78,8 +78,13 @@ public class Bot extends Module {
                         }
 
                         @Override
-                        public ClientConnection getConnection() {
-                            return null;
+                        public boolean isConnectionOpen() {
+                            return false;
+                        }
+
+                        @Override
+                        public boolean shouldCrashOnException() {
+                            return ClientLoginPacketListener.super.shouldCrashOnException();
                         }
                     });
                     con.send(new HandshakeC2SPacket(theip[0], Integer.parseInt(theip[1]), NetworkState.LOGIN));

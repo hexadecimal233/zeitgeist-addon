@@ -1,6 +1,6 @@
-package me.soda.randomaddon.mixins;
+package me.onlyrain.randomaddon.mixins;
 
-import me.soda.randomaddon.modules.GameTweaks;
+import me.onlyrain.randomaddon.modules.GameTweaks;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import net.minecraft.client.gui.screen.DeathScreen;
 import net.minecraft.text.Text;

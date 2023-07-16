@@ -1,12 +1,10 @@
-package me.soda.randomaddon;
+package me.onlyrain.randomaddon;
 
-import me.soda.randomaddon.commands.BloatCommand;
-import me.soda.randomaddon.commands.RenameCommand;
-import me.soda.randomaddon.commands.StopCommand;
-import me.soda.randomaddon.commands.VoidCommand;
-import me.soda.randomaddon.modules.*;
+import me.onlyrain.randomaddon.commands.BloatCommand;
+import me.onlyrain.randomaddon.commands.StopCommand;
+import me.onlyrain.randomaddon.modules.*;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
-import meteordevelopment.meteorclient.systems.commands.Commands;
+import meteordevelopment.meteorclient.commands.Commands;
 import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import net.minecraft.item.ItemStack;
@@ -23,33 +21,26 @@ public class Random extends MeteorAddon {
         // My
         modules.add(new HackerDetector());
 
+        // LiveOverflowMod
+
         // Allah
         modules.add(new BackTP());
         modules.add(new Bot());
         modules.add(new ConsoleFlood());
-        modules.add(new SexCrash());
-        modules.add(new Test());
         modules.add(new VelocityBoost());
         modules.add(new WorldGuardBypass());
         // Greteor
         modules.add(new GameTweaks());
-        modules.add(new VanillaFeatures());
         modules.add(new PrivateChat());
         modules.add(new EasyFilter());
         modules.add(new AutoMessage());
-        // Bidoof
-        modules.add(new PingSpoofer());
         // Mathax
         modules.add(new Sniper());
 
         // Commands
         // Allah
-        Commands commands = Commands.get();
-        commands.add(new BloatCommand());
-        commands.add(new StopCommand());
-        // Greteor
-        commands.add(new RenameCommand());
-        commands.add(new VoidCommand());
+        Commands.add(new BloatCommand());
+        Commands.add(new StopCommand());
     }
 
     @Override
@@ -59,6 +50,6 @@ public class Random extends MeteorAddon {
 
     @Override
     public String getPackage() {
-        return "me.soda.randomaddon";
+        return "me.onlyrain.randomaddon";
     }
 }

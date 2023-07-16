@@ -4,12 +4,12 @@
   "version": "${version}",
   "name": "Random Addon",
   "authors": [
-    "Soda5601"
+    "Fiz-Victor"
   ],
   "environment": "client",
   "entrypoints": {
     "meteor": [
-      "me.soda.randomaddon.Random"
+      "me.onlyrain.randomaddon.Random"
     ]
   },
   "mixins": [

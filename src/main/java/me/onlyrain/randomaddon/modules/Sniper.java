@@ -1,6 +1,6 @@
-package me.soda.randomaddon.modules;
+package me.onlyrain.randomaddon.modules;
 
-import me.soda.randomaddon.Random;
+import me.onlyrain.randomaddon.Random;
 import meteordevelopment.meteorclient.events.packets.PacketEvent;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.*;
@@ -15,7 +15,6 @@ import net.minecraft.network.packet.c2s.play.PlayerActionC2SPacket;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 
 public class Sniper extends Module {
-    private long lastShootTime;
     private boolean spoofed;
 
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
@@ -66,14 +65,6 @@ public class Sniper extends Module {
         .build()
     );
 
-    private final Setting<Integer> timeout = sgGeneral.add(new IntSetting.Builder()
-        .name("timeout")
-        .defaultValue(5000)
-        .range(100, 20000)
-        .sliderRange(100, 20000)
-        .build()
-    );
-
     private final Setting<Integer> spoofs = sgGeneral.add(new IntSetting.Builder()
         .name("spoofs")
         .defaultValue(10)
@@ -96,11 +87,6 @@ public class Sniper extends Module {
 
     public Sniper() {
         super(Random.CATEGORY, "sniper", "Exploits the one shot kill exploit.");
-    }
-
-    @Override
-    public void onActivate() {
-        lastShootTime = System.currentTimeMillis();
     }
 
     @EventHandler
@@ -129,10 +115,7 @@ public class Sniper extends Module {
 
     @EventHandler
     public void onPacketSend(PacketEvent.Send event) {
-        if (event.packet == null) return;
-
         if (event.packet instanceof PlayerActionC2SPacket packet) {
-
             if (packet.getAction() == PlayerActionC2SPacket.Action.RELEASE_USE_ITEM) {
                 if ((isBow() && bows.get()) || (isTrident() && tridents.get())) {
                     spoofed = false;
@@ -143,24 +126,21 @@ public class Sniper extends Module {
     }
 
     private void doSpoofs() {
-        if (System.currentTimeMillis() - lastShootTime >= timeout.get()) {
-            float value = (float) Math.pow(base.get(), -exponent.get());
-            lastShootTime = System.currentTimeMillis();
+        float value = (float) Math.pow(base.get(), -exponent.get());
 
-            if (sprint.get()) mc.player.networkHandler.sendPacket(new ClientCommandC2SPacket(mc.player, ClientCommandC2SPacket.Mode.START_SPRINTING));
+        if (sprint.get()) mc.player.networkHandler.sendPacket(new ClientCommandC2SPacket(mc.player, ClientCommandC2SPacket.Mode.START_SPRINTING));
 
-            for (int index = 0; index < spoofs.get(); ++index) {
-                if (bypass.get()) {
-                    mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(mc.player.getX(), mc.player.getY() + value, mc.player.getZ(), false));
-                    mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(mc.player.getX(), mc.player.getY() - value, mc.player.getZ(), true));
-                } else {
-                    mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(mc.player.getX(), mc.player.getY() - value, mc.player.getZ(), true));
-                    mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(mc.player.getX(), mc.player.getY() + value, mc.player.getZ(), false));
-                }
+        for (int index = 0; index < spoofs.get(); ++index) {
+            if (bypass.get()) {
+                mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(mc.player.getX(), mc.player.getY() + value, mc.player.getZ(), false));
+                mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(mc.player.getX(), mc.player.getY() - value, mc.player.getZ(), true));
+            } else {
+                mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(mc.player.getX(), mc.player.getY() - value, mc.player.getZ(), true));
+                mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.PositionAndOnGround(mc.player.getX(), mc.player.getY() + value, mc.player.getZ(), false));
             }
-
-            spoofed = true;
         }
+
+        spoofed = true;
     }
 
     private boolean isBow() {

@@ -1,6 +1,6 @@
-package me.soda.randomaddon.mixins;
+package me.onlyrain.randomaddon.mixins;
 
-import me.soda.randomaddon.modules.GameTweaks;
+import me.onlyrain.randomaddon.modules.GameTweaks;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import meteordevelopment.meteorclient.utils.player.ChatUtils;
 import net.minecraft.client.gl.Framebuffer;
@@ -24,7 +24,6 @@ import java.util.function.Consumer;
 
 @Mixin(ScreenshotRecorder.class)
 public abstract class ScreenshotRecorderMixin {
-
     @Inject(method = "saveScreenshotInner", at = @At("HEAD"), cancellable = true)
     private static void onScreenshot(File gameDirectory, @Nullable String fileName, Framebuffer framebuffer, Consumer<Text> messageReceiver, CallbackInfo ci) {
         if (Modules.get().get(GameTweaks.class).screenshots()) {

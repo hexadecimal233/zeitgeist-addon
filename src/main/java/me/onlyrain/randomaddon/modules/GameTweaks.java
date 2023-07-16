@@ -1,6 +1,6 @@
-package me.soda.randomaddon.modules;
+package me.onlyrain.randomaddon.modules;
 
-import me.soda.randomaddon.Random;
+import me.onlyrain.randomaddon.Random;
 import meteordevelopment.meteorclient.settings.BoolSetting;
 import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;

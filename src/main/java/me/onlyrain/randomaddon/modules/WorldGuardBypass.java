@@ -1,6 +1,6 @@
-package me.soda.randomaddon.modules;
+package me.onlyrain.randomaddon.modules;
 
-import me.soda.randomaddon.Random;
+import me.onlyrain.randomaddon.Random;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.SettingGroup;
 import meteordevelopment.meteorclient.systems.modules.Module;

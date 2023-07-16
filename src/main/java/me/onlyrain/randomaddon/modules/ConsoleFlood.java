@@ -1,6 +1,6 @@
-package me.soda.randomaddon.modules;
+package me.onlyrain.randomaddon.modules;
 
-import me.soda.randomaddon.Random;
+import me.onlyrain.randomaddon.Random;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.EnumSetting;
 import meteordevelopment.meteorclient.settings.IntSetting;
@@ -63,7 +63,7 @@ public class ConsoleFlood extends Module {
             case Sequence -> {
                 Vec3d asdf = mc.crosshairTarget.getPos();
                 for (int i = 0; i < amount.get(); i++) {
-                    mc.getNetworkHandler().sendPacket(new PlayerInteractBlockC2SPacket(Hand.MAIN_HAND, new BlockHitResult(asdf, Direction.DOWN, new BlockPos(asdf), false), -1));
+                    mc.getNetworkHandler().sendPacket(new PlayerInteractBlockC2SPacket(Hand.MAIN_HAND, new BlockHitResult(asdf, Direction.DOWN, BlockPos.ofFloored(asdf), false), -1));
                 }
             }
             case Slot -> {
@@ -73,7 +73,7 @@ public class ConsoleFlood extends Module {
             }
             case Interact -> {
                 Vec3d ppos = new Vec3d(30000000, 255, 30000000);
-                BlockHitResult bhr = new BlockHitResult(ppos, Direction.DOWN, new BlockPos(ppos), false);
+                BlockHitResult bhr = new BlockHitResult(ppos, Direction.DOWN, BlockPos.ofFloored(ppos), false);
                 for (int i = 0; i < amount.get(); i++) {
                     mc.getNetworkHandler().sendPacket(new PlayerInteractBlockC2SPacket(Hand.MAIN_HAND, bhr, 0));
                 }
