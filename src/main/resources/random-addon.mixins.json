@@ -5,6 +5,7 @@
   "client": [
     "BatEntityMixin",
     "BetterTooltipsMixin",
+    "ClientPlayNetworkHandlerMixin",
     "DeathScreenMixin",
     "MainMixin",
     "ScreenshotRecorderMixin"

@@ -1,6 +1,7 @@
 package me.onlyrain.randomaddon;
 
 import me.onlyrain.randomaddon.commands.BloatCommand;
+import me.onlyrain.randomaddon.commands.LOClipCommand;
 import me.onlyrain.randomaddon.commands.StopCommand;
 import me.onlyrain.randomaddon.modules.*;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
@@ -22,13 +23,15 @@ public class Random extends MeteorAddon {
         modules.add(new HackerDetector());
 
         // LiveOverflowMod
+        modules.add(new LOReach());
+        modules.add(new LOClipReach());
+        modules.add(new LOWorldGuardBypass());
 
         // Allah
         modules.add(new BackTP());
         modules.add(new Bot());
         modules.add(new ConsoleFlood());
         modules.add(new VelocityBoost());
-        modules.add(new WorldGuardBypass());
         // Greteor
         modules.add(new GameTweaks());
         modules.add(new PrivateChat());
@@ -41,6 +44,9 @@ public class Random extends MeteorAddon {
         // Allah
         Commands.add(new BloatCommand());
         Commands.add(new StopCommand());
+
+        // LO
+        Commands.add(new LOClipCommand());
     }
 
     @Override
