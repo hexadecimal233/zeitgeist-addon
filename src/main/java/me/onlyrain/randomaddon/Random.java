@@ -26,6 +26,7 @@ public class Random extends MeteorAddon {
         modules.add(new LOReach());
         modules.add(new LOClipReach());
         modules.add(new LOWorldGuardBypass());
+        modules.add(new NoRandomPackets());
 
         // Allah
         modules.add(new BackTP());
