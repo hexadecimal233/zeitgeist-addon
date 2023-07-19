@@ -23,6 +23,8 @@ public class Random extends MeteorAddon {
 
         // My
         modules.add(new HackerDetector());
+
+        // ScoreboardHelper & UglyScoreboardFix
         modules.add(new ScoreboardPlus());
 
         // LiveOverflowMod
