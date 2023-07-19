@@ -3,9 +3,11 @@ package me.onlyrain.randomaddon;
 import me.onlyrain.randomaddon.commands.BloatCommand;
 import me.onlyrain.randomaddon.commands.LOClipCommand;
 import me.onlyrain.randomaddon.commands.StopCommand;
+import me.onlyrain.randomaddon.hud.MoonHud;
 import me.onlyrain.randomaddon.modules.*;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.commands.Commands;
+import meteordevelopment.meteorclient.systems.hud.Hud;
 import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import net.minecraft.item.ItemStack;
@@ -21,6 +23,7 @@ public class Random extends MeteorAddon {
 
         // My
         modules.add(new HackerDetector());
+        modules.add(new ScoreboardPlus());
 
         // LiveOverflowMod
         modules.add(new LOReach());
@@ -48,6 +51,9 @@ public class Random extends MeteorAddon {
 
         // LO
         Commands.add(new LOClipCommand());
+
+        // HUD
+        Hud.get().register(MoonHud.INFO);
     }
 
     @Override
