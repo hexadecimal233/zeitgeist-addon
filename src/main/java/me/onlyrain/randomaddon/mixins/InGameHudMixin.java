@@ -1,6 +1,5 @@
 package me.onlyrain.randomaddon.mixins;
 
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.WrapWithCondition;
 import me.onlyrain.randomaddon.modules.ScoreboardPlus;
 import meteordevelopment.meteorclient.systems.modules.Modules;
@@ -60,27 +59,36 @@ public abstract class InGameHudMixin {
             ci.cancel();
     }
 
-    @ModifyExpressionValue(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/GameOptions;getTextBackgroundColor(F)I", ordinal = 1))
-    private int modTitleBGColor(int orig) {
-        return module.isActive() ? module.titleBGColor.get().getPacked() : orig;
-    }
-
-    @ModifyExpressionValue(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/GameOptions;getTextBackgroundColor(F)I", ordinal = 0))
-    private int modBGColor(int orig) {
-        return module.isActive() ? module.BGColor.get().getPacked() : orig;
-    }
-
     @WrapWithCondition(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawText(Lnet/minecraft/client/font/TextRenderer;Ljava/lang/String;IIIZ)I"))
     private boolean onDrawScore(DrawContext context, TextRenderer textRenderer, String text, int x, int y, int color, boolean shadow) {
         return !(module.isActive() && module.hideScores.get());
     }
 
-    @ModifyExpressionValue(method = "renderScoreboardSidebar", at = {
-        @At(value = "INVOKE", target = "Lnet/minecraft/client/font/TextRenderer;getWidth(Ljava/lang/String;)I", ordinal = 0),
-        @At(value = "INVOKE", target = "Lnet/minecraft/client/font/TextRenderer;getWidth(Ljava/lang/String;)I", ordinal = 1)
-    })
-    private int onGetScoreWidth(int orig) {
-        return module.isActive() && module.hideScores.get() ? 0 : orig;
+    // Tweakermore compat
+
+    @ModifyArg(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;fill(IIIII)V", ordinal = 0), index = 4)
+    private int modBGColor(int orig) {
+        return module.isActive() ? module.titleBGColor.get().getPacked() : orig;
+    }
+
+    @ModifyArg(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;fill(IIIII)V", ordinal = 2), index = 4)
+    private int modBGColor2(int orig) {
+        return module.isActive() ? module.titleBGColor.get().getPacked() : orig;
+    }
+
+    @ModifyArg(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;fill(IIIII)V", ordinal = 1), index = 4)
+    private int modTitleBGColor(int orig) {
+        return module.isActive() ? module.BGColor.get().getPacked() : orig;
+    }
+
+    @ModifyArg(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/font/TextRenderer;getWidth(Ljava/lang/String;)I", ordinal = 0))
+    private String onGetScoreWidth(String orig) {
+        return module.isActive() && module.hideScores.get() ? "" : orig;
+    }
+
+    @ModifyArg(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/font/TextRenderer;getWidth(Ljava/lang/String;)I", ordinal = 1))
+    private String onGetScoreWidth2(String orig) {
+        return module.isActive() && module.hideScores.get() ? "" : orig;
     }
 
     @Redirect(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawText(Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/text/Text;IIIZ)I", ordinal = 1))
