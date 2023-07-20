@@ -1,6 +1,6 @@
 # Meteor Addon 
 
-Addon created using Ctrl+C and Ctrl+V
+copying features
 
 Pasted from some outdated addons
 

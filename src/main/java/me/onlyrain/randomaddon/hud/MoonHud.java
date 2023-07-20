@@ -19,7 +19,7 @@ import net.minecraft.util.StringHelper;
 import static meteordevelopment.meteorclient.MeteorClient.mc;
 
 public class MoonHud extends HudElement {
-    private static final Identifier TEXTURE = new Identifier("moonhud-meteor", "moon_phases_icons.png");
+    private static final Identifier TEXTURE = new Identifier("random-addon", "moon_phases_icons.png");
     public static final HudElementInfo<MoonHud> INFO = new HudElementInfo<>(Hud.GROUP, "moon-hud", "Show moon phase.", MoonHud::new);
     private static final double IMG_SIZE = 18;
     private static double imgSize = 18;
@@ -37,7 +37,7 @@ public class MoonHud extends HudElement {
 
     private final Setting<Boolean> icon = sgGeneral.add(new BoolSetting.Builder()
         .name("icon")
-        .description("Show moon icon .")
+        .description("Show moon icon.")
         .defaultValue(false)
         .build()
     );

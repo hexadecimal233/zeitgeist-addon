@@ -66,14 +66,14 @@ public class ScoreboardPlus extends Module {
     public final Setting<Keybind> pagePrev = sgGeneral.add(new KeybindSetting.Builder()
         .name("previous-page")
         .defaultValue(Keybind.fromKey(GLFW_KEY_PAGE_UP))
-        .action(() -> listOff++)
+        .action(() -> listOff--)
         .build()
     );
 
     public final Setting<Keybind> pageNext = sgGeneral.add(new KeybindSetting.Builder()
         .name("next-page")
         .defaultValue(Keybind.fromKey(GLFW_KEY_PAGE_DOWN))
-        .action(() -> listOff--)
+        .action(() -> listOff++)
         .build()
     );
 
