@@ -1,5 +1,6 @@
 package me.onlyrain.randomaddon.mixins;
 
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.WrapWithCondition;
 import me.onlyrain.randomaddon.modules.ScoreboardPlus;
 import meteordevelopment.meteorclient.systems.modules.Modules;
@@ -7,7 +8,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
-import net.minecraft.client.option.GameOptions;
 import net.minecraft.scoreboard.ScoreboardObjective;
 import net.minecraft.scoreboard.ScoreboardPlayerScore;
 import net.minecraft.text.Text;
@@ -34,7 +34,7 @@ public abstract class InGameHudMixin {
     @Unique private int xShift;
 
     @Redirect(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Ljava/util/stream/Stream;collect(Ljava/util/stream/Collector;)Ljava/lang/Object;"))
-    private Object injected2(Stream stream, Collector collector) {
+    private Object injected2(Stream<ScoreboardPlayerScore> stream, Collector<?, ?, ?> collector) {
         List<ScoreboardPlayerScore> list = stream.toList();
         if (module.isActive() && module.pages.get()) {
             int max = module.maxLineCount.get();
@@ -60,14 +60,14 @@ public abstract class InGameHudMixin {
             ci.cancel();
     }
 
-    @Redirect(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/GameOptions;getTextBackgroundColor(F)I", ordinal = 1))
-    private int modTitleBGColor(GameOptions gameOptions, float opacity) {
-        return module.isActive() ? module.titleBGColor.get().getPacked() : gameOptions.getTextBackgroundColor(0.3f);
+    @ModifyExpressionValue(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/GameOptions;getTextBackgroundColor(F)I", ordinal = 1))
+    private int modTitleBGColor(int orig) {
+        return module.isActive() ? module.titleBGColor.get().getPacked() : orig;
     }
 
-    @Redirect(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/GameOptions;getTextBackgroundColor(F)I", ordinal = 0))
-    private int modBGColor(GameOptions gameOptions, float opacity) {
-        return module.isActive() ? module.BGColor.get().getPacked() : gameOptions.getTextBackgroundColor(0.3f);
+    @ModifyExpressionValue(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/GameOptions;getTextBackgroundColor(F)I", ordinal = 0))
+    private int modBGColor(int orig) {
+        return module.isActive() ? module.BGColor.get().getPacked() : orig;
     }
 
     @WrapWithCondition(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawText(Lnet/minecraft/client/font/TextRenderer;Ljava/lang/String;IIIZ)I"))
@@ -75,14 +75,12 @@ public abstract class InGameHudMixin {
         return !(module.isActive() && module.hideScores.get());
     }
 
-    @Redirect(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/font/TextRenderer;getWidth(Ljava/lang/String;)I", ordinal = 0))
-    private int onGetScoreWidth(TextRenderer textRenderer, String text) {
-        return module.isActive() && module.hideScores.get() ? 0 : textRenderer.getWidth(text);
-    }
-
-    @Redirect(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/font/TextRenderer;getWidth(Ljava/lang/String;)I", ordinal = 1))
-    private int onGetScoreWidth2(TextRenderer textRenderer, String text) {
-        return module.isActive() && module.hideScores.get() ? 0 : textRenderer.getWidth(text);
+    @ModifyExpressionValue(method = "renderScoreboardSidebar", at = {
+        @At(value = "INVOKE", target = "Lnet/minecraft/client/font/TextRenderer;getWidth(Ljava/lang/String;)I", ordinal = 0),
+        @At(value = "INVOKE", target = "Lnet/minecraft/client/font/TextRenderer;getWidth(Ljava/lang/String;)I", ordinal = 1)
+    })
+    private int onGetScoreWidth(int orig) {
+        return module.isActive() && module.hideScores.get() ? 0 : orig;
     }
 
     @Redirect(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawText(Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/text/Text;IIIZ)I", ordinal = 1))
