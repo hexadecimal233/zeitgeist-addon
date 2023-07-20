@@ -60,12 +60,19 @@ public abstract class InGameHudMixin {
             ci.cancel();
     }
 
-    @ModifyExpressionValue(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/GameOptions;getTextBackgroundColor(F)I", ordinal = 1))
-    private int modTitleBGColor(int orig) {
+    // tweakermore compat
+
+    @ModifyArg(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;fill(IIIII)V", ordinal = 0), index = 4)
+    private int modBGColor(int orig) {
         return module.isActive() ? module.titleBGColor.get().getPacked() : orig;
     }
 
-    @ModifyExpressionValue(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/GameOptions;getTextBackgroundColor(F)I", ordinal = 0))
+    @ModifyArg(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;fill(IIIII)V", ordinal = 2), index = 4)
+    private int modBGColor2(int orig) {
+        return module.isActive() ? module.titleBGColor.get().getPacked() : orig;
+    }
+
+    @ModifyVariable(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/GameOptions;getTextBackgroundColor(F)I", ordinal = 0),ordinal = 3)
     private int modBGColor(int orig) {
         return module.isActive() ? module.BGColor.get().getPacked() : orig;
     }
