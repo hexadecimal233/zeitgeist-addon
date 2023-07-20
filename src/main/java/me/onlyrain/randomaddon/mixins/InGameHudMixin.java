@@ -72,7 +72,7 @@ public abstract class InGameHudMixin {
         return module.isActive() ? module.titleBGColor.get().getPacked() : orig;
     }
 
-    @ModifyExpressionValue(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/option/GameOptions;getTextBackgroundColor(F)I", ordinal = 1))
+    @ModifyArg(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;fill(IIIII)V", ordinal = 1), index = 4)
     private int modTitleBGColor(int orig) {
         return module.isActive() ? module.BGColor.get().getPacked() : orig;
     }
