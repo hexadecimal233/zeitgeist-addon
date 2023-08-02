@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import me.onlyrain.randomaddon.utils.QolUtils;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.*;
@@ -35,7 +35,7 @@ public class ProjectileDeflector extends Module {
         .build());
 
     public ProjectileDeflector() {
-        super(Random.CATEGORY, "projectile-deflector", "omg it works!");
+        super(RandomAddon.CATEGORY, "projectile-deflector", "omg it works!");
     }
 
     @EventHandler

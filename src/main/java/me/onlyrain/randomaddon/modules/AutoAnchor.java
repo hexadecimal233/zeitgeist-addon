@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import me.onlyrain.randomaddon.utils.QolUtils;
 import meteordevelopment.meteorclient.events.entity.player.PlaceBlockEvent;
 import meteordevelopment.meteorclient.settings.DoubleSetting;
@@ -34,7 +34,7 @@ public class AutoAnchor extends Module {
         .build());
 
     public AutoAnchor() {
-        super(Random.CATEGORY, "auto-anchor", "kabooms an anchor after you place it");
+        super(RandomAddon.CATEGORY, "auto-anchor", "kabooms an anchor after you place it");
     }
 
     @EventHandler

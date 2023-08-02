@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.events.game.SendMessageEvent;
 import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
@@ -30,7 +30,7 @@ public class PrivateChat extends Module {
         .build());
 
     public PrivateChat() {
-        super(Random.CATEGORY, "private-chat", "Turns your chat into a private conversation.");
+        super(RandomAddon.CATEGORY, "private-chat", "Turns your chat into a private conversation.");
     }
 
     @EventHandler

@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.events.packets.PacketEvent;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.BoolSetting;
@@ -50,7 +50,7 @@ public class Totem extends Module {
     private int delay_ticks_left = 0, try_hard_ticks_left = 0;
 
     public Totem() {
-        super(Random.CATEGORY, "instant-totem", "Best strict auto totem");
+        super(RandomAddon.CATEGORY, "instant-totem", "Best strict auto totem");
     }
 
     @EventHandler

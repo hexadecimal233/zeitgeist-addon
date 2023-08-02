@@ -20,8 +20,8 @@ import static meteordevelopment.meteorclient.MeteorClient.mc;
 
 public class MoonHud extends HudElement {
     private static final Identifier TEXTURE = new Identifier("random-addon", "moon_phases_icons.png");
-    private static final double IMG_SIZE = 18;    public static final HudElementInfo<MoonHud> INFO = new HudElementInfo<>(Hud.GROUP, "moon-hud", "Show moon phase.", MoonHud::new);
-    private static double imgSize = 18;
+    private static final double IMG_SIZE = 18;
+    private static double imgSize = 18;    public static final HudElementInfo<MoonHud> INFO = new HudElementInfo<>(Hud.GROUP, "moon-hud", "Show moon phase.", MoonHud::new);
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
     private final SettingGroup sgScale = settings.createGroup("Scale");
     private final Setting<Boolean> shadow = sgGeneral.add(new BoolSetting.Builder()
@@ -30,7 +30,6 @@ public class MoonHud extends HudElement {
         .defaultValue(true)
         .build()
     );
-
     // General
     private final Setting<Boolean> icon = sgGeneral.add(new BoolSetting.Builder()
         .name("icon")
@@ -44,7 +43,6 @@ public class MoonHud extends HudElement {
         .defaultValue(false)
         .build()
     );
-
     // Scale
     private final Setting<Double> scale = sgScale.add(new DoubleSetting.Builder()
         .name("scale")
@@ -115,6 +113,8 @@ public class MoonHud extends HudElement {
     private double getScale() {
         return customScale.get() ? scale.get() : 1;
     }
+
+
 
 
 }

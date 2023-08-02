@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.gui.GuiTheme;
 import meteordevelopment.meteorclient.gui.widgets.WWidget;
 import meteordevelopment.meteorclient.gui.widgets.containers.WHorizontalList;
@@ -96,7 +96,7 @@ public class Printer extends Module {
         .build());
 
     public Printer() {
-        super(Random.CATEGORY, "printer", "Prints a cool message");
+        super(RandomAddon.CATEGORY, "printer", "Prints a cool message");
     }
 
     @Override

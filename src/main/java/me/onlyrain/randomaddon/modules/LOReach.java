@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.events.meteor.MouseButtonEvent;
 import meteordevelopment.meteorclient.events.packets.PacketEvent;
 import meteordevelopment.meteorclient.events.world.TickEvent;
@@ -57,7 +57,7 @@ public class LOReach extends Module {
     private Status phase = Status.STANDBY;
 
     public LOReach() {
-        super(Random.CATEGORY, "lo-reach", "Doing reach by tping you closer to your target and back.");
+        super(RandomAddon.CATEGORY, "lo-reach", "Doing reach by tping you closer to your target and back.");
     }
 
     @Override

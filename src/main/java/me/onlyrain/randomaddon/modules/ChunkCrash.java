@@ -1,5 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.EnumSetting;
 import meteordevelopment.meteorclient.settings.IntSetting;
@@ -38,7 +39,7 @@ public class ChunkCrash extends Module {
     private final Random r = new Random();
 
     public ChunkCrash() {
-        super(me.onlyrain.randomaddon.Random.CATEGORY, "chunk-crash", "all are patched 1.19 or something");
+        super(RandomAddon.CATEGORY, "chunk-crash", "all are patched 1.19 or something");
     }
 
     private Vec3d pickRandomPos() {

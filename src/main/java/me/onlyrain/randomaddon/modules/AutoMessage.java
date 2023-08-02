@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.IntSetting;
 import meteordevelopment.meteorclient.settings.Setting;
@@ -52,7 +52,7 @@ public class AutoMessage extends Module {
     );
 
     public AutoMessage() {
-        super(Random.CATEGORY, "auto-message", "Sends a configurable Starscript message every so often.");
+        super(RandomAddon.CATEGORY, "auto-message", "Sends a configurable Starscript message every so often.");
     }
 
     @Override

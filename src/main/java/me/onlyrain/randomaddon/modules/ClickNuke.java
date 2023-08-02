@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.events.meteor.MouseButtonEvent;
 import meteordevelopment.meteorclient.settings.IntSetting;
 import meteordevelopment.meteorclient.settings.Setting;
@@ -29,7 +29,7 @@ public class ClickNuke extends Module {
         .build());
 
     public ClickNuke() {
-        super(Random.CATEGORY, "click-nuke", "allah does his magic where you click");
+        super(RandomAddon.CATEGORY, "click-nuke", "allah does his magic where you click");
     }
 
     @EventHandler

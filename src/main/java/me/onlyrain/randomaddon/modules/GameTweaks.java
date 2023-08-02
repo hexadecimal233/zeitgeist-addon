@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.settings.BoolSetting;
 import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
@@ -28,7 +28,7 @@ public class GameTweaks extends Module {
         .build());
 
     public GameTweaks() {
-        super(Random.CATEGORY, "game-tweaks", "Minor changes to the game experience to improve gameplay.");
+        super(RandomAddon.CATEGORY, "game-tweaks", "Minor changes to the game experience to improve gameplay.");
     }
 
     public boolean bats() {

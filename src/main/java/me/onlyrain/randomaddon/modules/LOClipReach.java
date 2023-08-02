@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import me.onlyrain.randomaddon.utils.ClipUtils;
 import meteordevelopment.meteorclient.events.meteor.MouseButtonEvent;
 import meteordevelopment.meteorclient.settings.DoubleSetting;
@@ -43,7 +43,7 @@ public class LOClipReach extends Module {
     );
 
     public LOClipReach() {
-        super(Random.CATEGORY, "lo-clip-reach", "Reach target by tping up -> straight -> down.");
+        super(RandomAddon.CATEGORY, "lo-clip-reach", "Reach target by tping up -> straight -> down.");
     }
 
     @EventHandler

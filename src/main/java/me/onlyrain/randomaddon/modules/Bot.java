@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.IntSetting;
 import meteordevelopment.meteorclient.settings.Setting;
@@ -35,7 +35,7 @@ public class Bot extends Module {
         .build());
 
     public Bot() {
-        super(Random.CATEGORY, "bot", "when the server is cracked!");
+        super(RandomAddon.CATEGORY, "bot", "when the server is cracked!");
     }
 
     @EventHandler

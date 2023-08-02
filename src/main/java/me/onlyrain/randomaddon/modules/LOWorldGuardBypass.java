@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.orbit.EventHandler;
@@ -12,7 +12,7 @@ public class LOWorldGuardBypass extends Module {
     int flyingTimer = 0;
 
     public LOWorldGuardBypass() {
-        super(Random.CATEGORY, "lo-worldguard-bypass", "wg bypass glitchy");
+        super(RandomAddon.CATEGORY, "lo-worldguard-bypass", "wg bypass glitchy");
     }
 
     public static boolean inSameBlock(Vec3d vector, Vec3d other) {

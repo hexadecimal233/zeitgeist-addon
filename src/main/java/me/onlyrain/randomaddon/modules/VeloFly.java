@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.*;
 import meteordevelopment.meteorclient.systems.modules.Module;
@@ -40,7 +40,7 @@ public class VeloFly extends Module {
     int timer = 0;
 
     public VeloFly() {
-        super(Random.CATEGORY, "velo-fly", "flight using velocity");
+        super(RandomAddon.CATEGORY, "velo-fly", "flight using velocity");
     }
 
     @EventHandler

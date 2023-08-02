@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import me.onlyrain.randomaddon.utils.QolUtils;
 import meteordevelopment.meteorclient.events.meteor.MouseButtonEvent;
 import meteordevelopment.meteorclient.settings.BoolSetting;
@@ -30,7 +30,7 @@ public class AnyPlacer extends Module {
         .build());
 
     public AnyPlacer() {
-        super(Random.CATEGORY, "anyplacer", "Place spawn eggs anywhere in creative");
+        super(RandomAddon.CATEGORY, "anyplacer", "Place spawn eggs anywhere in creative");
     }
 
     @EventHandler

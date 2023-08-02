@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.IntSetting;
 import meteordevelopment.meteorclient.settings.Setting;
@@ -48,7 +48,7 @@ public class HackerDetector extends Module {
     private List<String> playerCache = new ArrayList<>();
 
     public HackerDetector() {
-        super(Random.CATEGORY, "hacker-detector", "Detect hackers using random client api");
+        super(RandomAddon.CATEGORY, "hacker-detector", "Detect hackers using random client api");
     }
 
     @Override

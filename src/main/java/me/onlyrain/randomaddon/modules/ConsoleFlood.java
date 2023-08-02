@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.EnumSetting;
 import meteordevelopment.meteorclient.settings.IntSetting;
@@ -35,7 +35,7 @@ public class ConsoleFlood extends Module {
     int timer = 0;
 
     public ConsoleFlood() {
-        super(Random.CATEGORY, "console-flooder", "floods the console (some only work on vanilla/spigot)");
+        super(RandomAddon.CATEGORY, "console-flooder", "floods the console (some only work on vanilla/spigot)");
     }
 
     @EventHandler

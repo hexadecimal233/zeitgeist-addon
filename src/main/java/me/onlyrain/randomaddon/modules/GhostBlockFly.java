@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.BlockListSetting;
 import meteordevelopment.meteorclient.settings.Setting;
@@ -31,7 +31,7 @@ public class GhostBlockFly extends Module {
     int timer = 0;
 
     public GhostBlockFly() {
-        super(Random.CATEGORY, "ghost-block-fly", "Fly using ghost blocks");
+        super(RandomAddon.CATEGORY, "ghost-block-fly", "Fly using ghost blocks");
     }
 
     @EventHandler

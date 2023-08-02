@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.events.packets.PacketEvent;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.*;
@@ -76,7 +76,7 @@ public class Sniper extends Module {
     private boolean spoofed;
 
     public Sniper() {
-        super(Random.CATEGORY, "sniper", "Exploits the one shot kill exploit.");
+        super(RandomAddon.CATEGORY, "sniper", "Exploits the one shot kill exploit.");
     }
 
     @EventHandler

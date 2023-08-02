@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import me.onlyrain.randomaddon.events.GameStateChangeEvent;
 import meteordevelopment.meteorclient.settings.BoolSetting;
 import meteordevelopment.meteorclient.settings.Setting;
@@ -32,7 +32,7 @@ public class NoRandomPackets extends Module {
         .build());
 
     public NoRandomPackets() {
-        super(Random.CATEGORY, "no-random-packets", "No random packets.");
+        super(RandomAddon.CATEGORY, "no-random-packets", "No random packets.");
     }
 
     @EventHandler

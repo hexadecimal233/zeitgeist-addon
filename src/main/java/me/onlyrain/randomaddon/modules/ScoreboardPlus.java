@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import me.onlyrain.randomaddon.events.ScoreboardEvent;
 import meteordevelopment.meteorclient.settings.*;
 import meteordevelopment.meteorclient.systems.modules.Module;
@@ -110,7 +110,7 @@ public class ScoreboardPlus extends Module {
     );
 
     public ScoreboardPlus() {
-        super(Random.CATEGORY, "scoreboard-plus", "Various tweaks to your scoreboard.");
+        super(RandomAddon.CATEGORY, "scoreboard-plus", "Various tweaks to your scoreboard.");
     }
 
     @Override

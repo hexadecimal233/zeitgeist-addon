@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.settings.DoubleSetting;
 import meteordevelopment.meteorclient.settings.EnumSetting;
 import meteordevelopment.meteorclient.settings.Setting;
@@ -32,7 +32,7 @@ public class VelocityBoost extends Module {
         .build());
 
     public VelocityBoost() {
-        super(Random.CATEGORY, "velocity-boost", "changes your velocity (much faster than you think)");
+        super(RandomAddon.CATEGORY, "velocity-boost", "changes your velocity (much faster than you think)");
     }
 
     @Override

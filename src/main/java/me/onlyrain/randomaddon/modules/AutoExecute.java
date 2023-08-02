@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
 import meteordevelopment.meteorclient.settings.StringListSetting;
@@ -20,7 +20,7 @@ public class AutoExecute extends Module {
         .build());
 
     public AutoExecute() {
-        super(Random.CATEGORY, "auto-execute", "Automatically executes commands on activate");
+        super(RandomAddon.CATEGORY, "auto-execute", "Automatically executes commands on activate");
     }
 
     @EventHandler

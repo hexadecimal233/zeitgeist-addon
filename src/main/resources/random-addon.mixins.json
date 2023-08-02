@@ -8,6 +8,7 @@
     "ClientPlayNetworkHandlerMixin",
     "DeathScreenMixin",
     "InGameHudMixin",
+    "LoginHelloC2SPacketMixin",
     "MainMixin",
     "ScreenshotRecorderMixin"
   ],

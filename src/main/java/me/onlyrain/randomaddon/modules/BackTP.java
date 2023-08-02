@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.settings.IntSetting;
 import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
@@ -18,7 +18,7 @@ public class BackTP extends Module {
         .build());
 
     public BackTP() {
-        super(Random.CATEGORY, "back-tp", "Teleports behind the entity you look at");
+        super(RandomAddon.CATEGORY, "back-tp", "Teleports behind the entity you look at");
     }
 
     @Override

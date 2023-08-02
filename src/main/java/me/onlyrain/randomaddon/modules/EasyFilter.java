@@ -1,6 +1,6 @@
 package me.onlyrain.randomaddon.modules;
 
-import me.onlyrain.randomaddon.Random;
+import me.onlyrain.randomaddon.RandomAddon;
 import meteordevelopment.meteorclient.events.game.ReceiveMessageEvent;
 import meteordevelopment.meteorclient.settings.*;
 import meteordevelopment.meteorclient.systems.modules.Module;
@@ -31,7 +31,7 @@ public class EasyFilter extends Module {
         .build());
 
     public EasyFilter() {
-        super(Random.CATEGORY, "anti-chat-spam", "Prevent messages from displaying. Useful for hiding automated messages.");
+        super(RandomAddon.CATEGORY, "anti-chat-spam", "Prevent messages from displaying. Useful for hiding automated messages.");
     }
 
     @EventHandler
