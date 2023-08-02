@@ -1,8 +1,6 @@
 package me.onlyrain.randomaddon;
 
-import me.onlyrain.randomaddon.commands.BloatCommand;
-import me.onlyrain.randomaddon.commands.LOClipCommand;
-import me.onlyrain.randomaddon.commands.StopCommand;
+import me.onlyrain.randomaddon.commands.*;
 import me.onlyrain.randomaddon.hud.MoonHud;
 import me.onlyrain.randomaddon.modules.*;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
@@ -23,6 +21,18 @@ public class Random extends MeteorAddon {
 
         // My
         modules.add(new HackerDetector());
+
+        // QOL
+        Modules.get().add(new AnyPlacer());
+        Modules.get().add(new AutoAnchor());
+        Modules.get().add(new AutoExecute());
+        Modules.get().add(new ChunkCrash());
+        Modules.get().add(new ClickNuke());
+        Modules.get().add(new GhostBlockFly());
+        Modules.get().add(new Printer());
+        Modules.get().add(new ProjectileDeflector());
+        Modules.get().add(new Totem());
+        Modules.get().add(new VeloFly());
 
         // ScoreboardHelper & UglyScoreboardFix
         modules.add(new ScoreboardPlus());
@@ -50,6 +60,17 @@ public class Random extends MeteorAddon {
         // Allah
         Commands.add(new BloatCommand());
         Commands.add(new StopCommand());
+
+        // QOL
+        Commands.add(new BeehiveCommand());
+        Commands.add(new ClearCommand());
+        Commands.add(new CorruptCommand());
+        Commands.add(new EffectCommand());
+        Commands.add(new ForceOpCommand());
+        Commands.add(new HideCommand());
+        Commands.add(new KillCommand());
+        Commands.add(new LagCommand());
+        Commands.add(new ShriekCommand());
 
         // LO
         Commands.add(new LOClipCommand());

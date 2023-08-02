@@ -32,35 +32,6 @@ public abstract class BetterTooltipsMixin {
     @Unique
     private Setting<Boolean> anvilUses;
 
-    @Inject(method = "<init>", at = @At("TAIL"))
-    private void init(CallbackInfo ci) {
-        anvilUses = sgOther.add(new BoolSetting.Builder()
-            .name("anvil-uses")
-            .description("Shows the amount of times an item has been used in an anvil.")
-            .defaultValue(true)
-            .build()
-        );
-    }
-
-    @Inject(method = "appendTooltip", at = @At("HEAD"))
-    private void anvilTooltips(ItemStackTooltipEvent event, CallbackInfo ci) {
-        if (anvilUses.get()) {
-            NbtCompound tag = event.itemStack.getNbt();
-            if (tag == null) return;
-            boolean isBook = event.itemStack.getItem().equals(Items.ENCHANTED_BOOK);
-            if (isBook && !tag.contains("StoredEnchantments")) return;
-            if (event.itemStack.getItem().isEnchantable(event.itemStack) || isBook) {
-                int repairCost = tag.contains("RepairCost") ? tag.getInt("RepairCost") : 0;
-                int uses = log2(repairCost + 1);
-                NbtList list = isBook ? tag.getList("StoredEnchantments", 10) : tag.getList("Enchantments", 10);
-                if (list.isEmpty()) return;
-                Formatting formatting = getFormatting(list, uses, isBook);
-                event.list.add(Text.literal("%sAnvil Uses: %s%d%s.".formatted(Formatting.GRAY, formatting, uses, Formatting.GRAY)));
-                event.list.add(Text.literal("%sBase Cost: %s%d%s.".formatted(Formatting.GRAY, formatting, isBook ? getBaseCost(list) + repairCost : repairCost, Formatting.GRAY)));
-            }
-        }
-    }
-
     private static int getRarity(Enchantment enchantment) {
         return switch (enchantment.getRarity()) {
             case COMMON, UNCOMMON -> 1;
@@ -95,5 +66,34 @@ public abstract class BetterTooltipsMixin {
 
     private static int log2(int x) {
         return 31 - Integer.numberOfLeadingZeros(x);
+    }
+
+    @Inject(method = "<init>", at = @At("TAIL"))
+    private void init(CallbackInfo ci) {
+        anvilUses = sgOther.add(new BoolSetting.Builder()
+            .name("anvil-uses")
+            .description("Shows the amount of times an item has been used in an anvil.")
+            .defaultValue(true)
+            .build()
+        );
+    }
+
+    @Inject(method = "appendTooltip", at = @At("HEAD"))
+    private void anvilTooltips(ItemStackTooltipEvent event, CallbackInfo ci) {
+        if (anvilUses.get()) {
+            NbtCompound tag = event.itemStack.getNbt();
+            if (tag == null) return;
+            boolean isBook = event.itemStack.getItem().equals(Items.ENCHANTED_BOOK);
+            if (isBook && !tag.contains("StoredEnchantments")) return;
+            if (event.itemStack.getItem().isEnchantable(event.itemStack) || isBook) {
+                int repairCost = tag.contains("RepairCost") ? tag.getInt("RepairCost") : 0;
+                int uses = log2(repairCost + 1);
+                NbtList list = isBook ? tag.getList("StoredEnchantments", 10) : tag.getList("Enchantments", 10);
+                if (list.isEmpty()) return;
+                Formatting formatting = getFormatting(list, uses, isBook);
+                event.list.add(Text.literal("%sAnvil Uses: %s%d%s.".formatted(Formatting.GRAY, formatting, uses, Formatting.GRAY)));
+                event.list.add(Text.literal("%sBase Cost: %s%d%s.".formatted(Formatting.GRAY, formatting, isBook ? getBaseCost(list) + repairCost : repairCost, Formatting.GRAY)));
+            }
+        }
     }
 }

@@ -12,12 +12,12 @@ import org.spongepowered.asm.mixin.Shadow;
 @Mixin(BatEntity.class)
 public abstract class BatEntityMixin extends AmbientEntity {
 
-    @Shadow
-    public abstract float getSoundPitch();
-
     protected BatEntityMixin(EntityType<? extends AmbientEntity> entityType, World world) {
         super(entityType, world);
     }
+
+    @Shadow
+    public abstract float getSoundPitch();
 
     @Override
     public float getSoundVolume() {

@@ -15,6 +15,12 @@ public class LOWorldGuardBypass extends Module {
         super(Random.CATEGORY, "lo-worldguard-bypass", "wg bypass glitchy");
     }
 
+    public static boolean inSameBlock(Vec3d vector, Vec3d other) {
+        return other.x >= Math.floor(vector.x) && other.x <= Math.ceil(vector.x) &&
+            other.y >= Math.floor(vector.y) && other.y <= Math.ceil(vector.y) &&
+            other.z >= Math.floor(vector.z) && other.z <= Math.ceil(vector.z);
+    }
+
     @Override
     public void onDeactivate() {
         flyingTimer = 0;
@@ -77,12 +83,6 @@ public class LOWorldGuardBypass extends Module {
                 }
             }
         }
-    }
-
-    public static boolean inSameBlock(Vec3d vector, Vec3d other) {
-        return other.x >= Math.floor(vector.x) && other.x <= Math.ceil(vector.x) &&
-            other.y >= Math.floor(vector.y) && other.y <= Math.ceil(vector.y) &&
-            other.z >= Math.floor(vector.z) && other.z <= Math.ceil(vector.z);
     }
 
     public boolean collides(Vec3d pos) {

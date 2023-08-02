@@ -20,14 +20,10 @@ import static meteordevelopment.meteorclient.MeteorClient.mc;
 
 public class MoonHud extends HudElement {
     private static final Identifier TEXTURE = new Identifier("random-addon", "moon_phases_icons.png");
-    public static final HudElementInfo<MoonHud> INFO = new HudElementInfo<>(Hud.GROUP, "moon-hud", "Show moon phase.", MoonHud::new);
-    private static final double IMG_SIZE = 18;
+    private static final double IMG_SIZE = 18;    public static final HudElementInfo<MoonHud> INFO = new HudElementInfo<>(Hud.GROUP, "moon-hud", "Show moon phase.", MoonHud::new);
     private static double imgSize = 18;
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
     private final SettingGroup sgScale = settings.createGroup("Scale");
-
-    // General
-
     private final Setting<Boolean> shadow = sgGeneral.add(new BoolSetting.Builder()
         .name("shadow")
         .description("Renders shadow behind text.")
@@ -35,15 +31,13 @@ public class MoonHud extends HudElement {
         .build()
     );
 
+    // General
     private final Setting<Boolean> icon = sgGeneral.add(new BoolSetting.Builder()
         .name("icon")
         .description("Show moon icon.")
         .defaultValue(false)
         .build()
     );
-
-    // Scale
-
     private final Setting<Boolean> customScale = sgScale.add(new BoolSetting.Builder()
         .name("custom-scale")
         .description("Applies custom text scale rather than the global one.")
@@ -51,6 +45,7 @@ public class MoonHud extends HudElement {
         .build()
     );
 
+    // Scale
     private final Setting<Double> scale = sgScale.add(new DoubleSetting.Builder()
         .name("scale")
         .description("Custom scale.")
@@ -60,11 +55,9 @@ public class MoonHud extends HudElement {
         .sliderRange(0.5, 3)
         .build()
     );
-
     String size = "";
     String nextPhase = "";
     TextureRegion region = new TextureRegion(0, 0);
-
     public MoonHud() {
         super(INFO);
     }
@@ -122,4 +115,6 @@ public class MoonHud extends HudElement {
     private double getScale() {
         return customScale.get() ? scale.get() : 1;
     }
+
+
 }

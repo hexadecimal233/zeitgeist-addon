@@ -32,12 +32,11 @@ public class ConsoleFlood extends Module {
         .defaultValue(1)
         .sliderRange(1, 20)
         .build());
+    int timer = 0;
 
     public ConsoleFlood() {
         super(Random.CATEGORY, "console-flooder", "floods the console (some only work on vanilla/spigot)");
     }
-
-    int timer = 0;
 
     @EventHandler
     private void onTick(TickEvent.Post event) {

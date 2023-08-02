@@ -25,12 +25,18 @@ import java.util.stream.Stream;
 
 @Mixin(InGameHud.class)
 public abstract class InGameHudMixin {
-    @Shadow private int scaledWidth;
-    @Shadow private int scaledHeight;
-    @Shadow @Final private MinecraftClient client;
+    @Shadow
+    private int scaledWidth;
+    @Shadow
+    private int scaledHeight;
+    @Shadow
+    @Final
+    private MinecraftClient client;
 
-    @Unique private ScoreboardPlus module;
-    @Unique private int xShift;
+    @Unique
+    private ScoreboardPlus module;
+    @Unique
+    private int xShift;
 
     @Redirect(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Ljava/util/stream/Stream;collect(Ljava/util/stream/Collector;)Ljava/lang/Object;"))
     private Object injected2(Stream<ScoreboardPlayerScore> stream, Collector<?, ?, ?> collector) {

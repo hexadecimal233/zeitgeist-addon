@@ -16,23 +16,6 @@ import java.util.List;
 
 public class AutoMessage extends Module {
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
-
-    private final Setting<List<String>> messages1 = sgGeneral.add(new StringListSetting.Builder()
-        .name("messages1")
-        .description("Messages to send.")
-        .defaultValue(List.of("Meteor on Crack!"))
-        .onChanged(this::recompileM1)
-        .build()
-    );
-
-    private final Setting<List<String>> messages2 = sgGeneral.add(new StringListSetting.Builder()
-        .name("messages2")
-        .description("Messages to send.")
-        .defaultValue(List.of("Meteor on Crack!"))
-        .onChanged(this::recompileM2)
-        .build()
-    );
-
     private final Setting<Integer> delay1 = sgGeneral.add(new IntSetting.Builder()
         .name("message-delay")
         .description("The delay between specified messages in ticks.")
@@ -41,7 +24,6 @@ public class AutoMessage extends Module {
         .noSlider()
         .build()
     );
-
     private final Setting<Integer> delay2 = sgGeneral.add(new IntSetting.Builder()
         .name("message2-delay")
         .description("The delay between specified messages in ticks.")
@@ -50,11 +32,24 @@ public class AutoMessage extends Module {
         .noSlider()
         .build()
     );
-
     private int timer1 = 0;
     private int timer2 = 0;
     private List<Script> scripts1;
+    private final Setting<List<String>> messages1 = sgGeneral.add(new StringListSetting.Builder()
+        .name("messages1")
+        .description("Messages to send.")
+        .defaultValue(List.of("Meteor on Crack!"))
+        .onChanged(this::recompileM1)
+        .build()
+    );
     private List<Script> scripts2;
+    private final Setting<List<String>> messages2 = sgGeneral.add(new StringListSetting.Builder()
+        .name("messages2")
+        .description("Messages to send.")
+        .defaultValue(List.of("Meteor on Crack!"))
+        .onChanged(this::recompileM2)
+        .build()
+    );
 
     public AutoMessage() {
         super(Random.CATEGORY, "auto-message", "Sends a configurable Starscript message every so often.");
@@ -73,16 +68,14 @@ public class AutoMessage extends Module {
         if (timer1 <= 0) {
             scripts1.forEach(script -> ChatUtils.sendPlayerMsg(MeteorStarscript.run(script)));
             timer1 = delay1.get();
-        }
-        else {
+        } else {
             timer1--;
         }
 
         if (timer2 <= 0) {
             scripts2.forEach(script -> ChatUtils.sendPlayerMsg(MeteorStarscript.run(script)));
             timer2 = delay2.get();
-        }
-        else {
+        } else {
             timer2--;
         }
     }

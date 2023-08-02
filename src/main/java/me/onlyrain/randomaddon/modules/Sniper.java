@@ -15,12 +15,7 @@ import net.minecraft.network.packet.c2s.play.PlayerActionC2SPacket;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 
 public class Sniper extends Module {
-    private boolean spoofed;
-
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
-
-    // General
-
     private final Setting<Double> base = sgGeneral.add(new DoubleSetting.Builder()
         .name("hide-base")
         .description("Base for the exponent number for hiding rubberband.")
@@ -30,6 +25,7 @@ public class Sniper extends Module {
         .build()
     );
 
+    // General
     private final Setting<Double> exponent = sgGeneral.add(new DoubleSetting.Builder()
         .name("hide-exponent")
         .description("Exponent for the base number for hiding rubberband.")
@@ -38,33 +34,28 @@ public class Sniper extends Module {
         .sliderRange(0.001, 2147483647)
         .build()
     );
-
     private final Setting<Boolean> antiHungerPause = sgGeneral.add(new BoolSetting.Builder()
         .name("anti-hunger-pause")
         .description("Pauses Anti Hunger when you are spoofing")
         .defaultValue(true)
         .build()
     );
-
     private final Setting<Boolean> noFallPause = sgGeneral.add(new BoolSetting.Builder()
         .name("no-fall-pause")
         .description("Pauses No Fall when you are spoofing")
         .defaultValue(true)
         .build()
     );
-
     private final Setting<Boolean> bows = sgGeneral.add(new BoolSetting.Builder()
         .name("bows")
         .defaultValue(true)
         .build()
     );
-
     private final Setting<Boolean> tridents = sgGeneral.add(new BoolSetting.Builder()
         .name("tridents")
         .defaultValue(true)
         .build()
     );
-
     private final Setting<Integer> spoofs = sgGeneral.add(new IntSetting.Builder()
         .name("spoofs")
         .defaultValue(10)
@@ -72,18 +63,17 @@ public class Sniper extends Module {
         .sliderRange(1, 300)
         .build()
     );
-
     private final Setting<Boolean> sprint = sgGeneral.add(new BoolSetting.Builder()
         .name("sprint")
         .defaultValue(false)
         .build()
     );
-
     private final Setting<Boolean> bypass = sgGeneral.add(new BoolSetting.Builder()
         .name("bypass")
         .defaultValue(false)
         .build()
     );
+    private boolean spoofed;
 
     public Sniper() {
         super(Random.CATEGORY, "sniper", "Exploits the one shot kill exploit.");
@@ -128,7 +118,8 @@ public class Sniper extends Module {
     private void doSpoofs() {
         float value = (float) Math.pow(base.get(), -exponent.get());
 
-        if (sprint.get()) mc.player.networkHandler.sendPacket(new ClientCommandC2SPacket(mc.player, ClientCommandC2SPacket.Mode.START_SPRINTING));
+        if (sprint.get())
+            mc.player.networkHandler.sendPacket(new ClientCommandC2SPacket(mc.player, ClientCommandC2SPacket.Mode.START_SPRINTING));
 
         for (int index = 0; index < spoofs.get(); ++index) {
             if (bypass.get()) {

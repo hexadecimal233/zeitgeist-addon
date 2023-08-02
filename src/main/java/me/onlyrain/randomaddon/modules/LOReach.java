@@ -50,22 +50,20 @@ public class LOReach extends Module {
         .max(100)
         .build()
     );
-
-
+    private final LinkedList<Packet<?>> whitelistedPackets = new LinkedList<>();
     private Vec3d realPos;
     private Entity target;
     private Vec3d targetPos;
     private Status phase = Status.STANDBY;
-    private final LinkedList<Packet<?>> whitelistedPackets = new LinkedList<>();
+
+    public LOReach() {
+        super(Random.CATEGORY, "lo-reach", "Doing reach by tping you closer to your target and back.");
+    }
 
     @Override
     public void onActivate() {
         phase = Status.STANDBY;
         whitelistedPackets.clear();
-    }
-
-    public LOReach() {
-        super(Random.CATEGORY, "lo-reach", "Doing reach by tping you closer to your target and back.");
     }
 
     // Get target and cancel doAttack
@@ -140,13 +138,13 @@ public class LOReach extends Module {
         }
     }
 
+    private boolean canUseReach(Vec3d me, Vec3d entity) {
+        return entity.distanceTo(me.add(0, mc.player.getStandingEyeHeight(), 0)) >= enableDistance.get();
+    }
+
     public enum Status {
         STANDBY,
         FORWARD,
         BACKWARD,
-    }
-
-    private boolean canUseReach(Vec3d me, Vec3d entity) {
-        return entity.distanceTo(me.add(0, mc.player.getStandingEyeHeight(), 0)) >= enableDistance.get();
     }
 }
