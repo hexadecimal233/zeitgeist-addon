@@ -1,6 +1,6 @@
 # Meteor Addon 
 
-copying features
+CV addon
 
 Pasted from some outdated addons
 

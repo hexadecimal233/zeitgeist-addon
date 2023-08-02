@@ -58,6 +58,8 @@ public class RandomAddon extends MeteorAddon {
         modules.add(new AutoMessage());
         // Mathax
         modules.add(new Sniper());
+        //Wurst
+        modules.add(new BuildRandom());
 
         // FK U CRYSTAL
 
