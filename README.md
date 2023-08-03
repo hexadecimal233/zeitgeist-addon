@@ -5,3 +5,5 @@
 <div style="text-align: center">
 <h1>Zeitgeist addon</h1>
 </div>
+
+An addon that contains cool features (to me) from some outdated addons.
