@@ -18,7 +18,7 @@ import static meteordevelopment.meteorclient.MeteorClient.mc;
 
 public class TeleportCommand extends Command {
     public TeleportCommand() {
-        super("crystal-teleport", "Allows to teleport small distances.", "tp");
+        super("vector-teleport", "Allows to teleport small distances.", "tp");
     }
 
     @Override

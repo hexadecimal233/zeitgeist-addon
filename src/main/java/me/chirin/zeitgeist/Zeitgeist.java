@@ -118,13 +118,12 @@ public class Zeitgeist extends MeteorAddon {
         Commands.add(new KillCommand());
         Commands.add(new LagCommand());
 
-        // Crystal
-        Commands.add(new ItemCommand());
+        // Vector Addon
         Commands.add(new TeleportCommand());
         Commands.add(new UUIDCommand());
-        Commands.add(new IPLookupCommand());
-        Commands.add(new DNSLookupCommand());
-        Commands.add(new IPBlacklistCommand());
+
+        // Crystal
+        Commands.add(new ItemCommand());
         Commands.add(new PingCommand());
         Commands.add(new SubnetCalculatorCommand());
         Commands.add(new SpoofServerBrandCommand());
