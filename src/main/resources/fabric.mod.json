@@ -1,19 +1,21 @@
 {
   "schemaVersion": 1,
-  "id": "random-addon",
+  "id": "zeigeist-addon",
   "version": "${version}",
-  "name": "Random Addon",
+  "name": "Zeitgeist Addon",
+  "description": "An addon that contains great features from some outdated addons.",
+  "icon": "assets/zeitgeist-addon/icon.png",
   "authors": [
-    "Fiz-Victor"
+    "AmeChirin"
   ],
   "environment": "client",
   "entrypoints": {
     "meteor": [
-      "me.onlyrain.randomaddon.RandomAddon"
+      "me.chirin.zeitgeist.Zeitgeist"
     ]
   },
   "mixins": [
-    "random-addon.mixins.json"
+    "zeitgeist-addon.mixins.json"
   ],
   "depends": {
     "java": ">=17",

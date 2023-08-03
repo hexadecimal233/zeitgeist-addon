@@ -1,0 +1,23 @@
+{
+  "required": true,
+  "package": "me.chirin.zeitgeist.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "BatEntityMixin",
+    "BetterTooltipsMixin",
+    "ChatScreenMixin",
+    "ClientPlayNetworkHandlerMixin",
+    "DeathScreenMixin",
+    "InGameHudMixin",
+    "LoginHelloC2SPacketMixin",
+    "MainMixin",
+    "MusicTrackerMixin",
+    "ScreenshotRecorderMixin",
+    "meteor.Renderer2DMixin",
+    "meteor.SpamMixin",
+    "meteor.StarscriptMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
