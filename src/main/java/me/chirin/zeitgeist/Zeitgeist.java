@@ -19,7 +19,7 @@ import java.util.Scanner;
 
 public class Zeitgeist extends MeteorAddon {
     public static final Category CATEGORY = new Category("Zeitgeist", new ItemStack(Items.CLOCK));
-    public static Category CATEGORYC = null;
+    public static Category CATEGORYC = new Category("RandomCrystalPort", new ItemStack(Items.CLOCK));;
 
     @Override
     public void onInitialize() {
@@ -66,6 +66,16 @@ public class Zeitgeist extends MeteorAddon {
         modules.add(new OpenAnarchyAutoDupe());
         // Vector
         modules.add(new NoSwing());
+
+        // ------
+        new Reflections("me.chirin.zeitgeist.modules.crystal.crash", new Scanner[0]).getSubTypesOf(Module.class).forEach(cls -> {
+            try {
+                modules.add(cls.newInstance());
+            } catch (IllegalAccessException | InstantiationException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
 
         // Tokyo
         modules.add(new Announcer());
@@ -115,17 +125,11 @@ public class Zeitgeist extends MeteorAddon {
     @Override
     public void onRegisterCategories() {
         Modules.registerCategory(CATEGORY);
-        if (CATEGORYC != null) Modules.registerCategory(CATEGORYC);
-
-        Modules modules = Modules.get();
-        new Reflections("me.chirin.zeitgeist.modules.crystal.crash", new Scanner[0]).getSubTypesOf(Module.class).forEach(cls -> {
-            try {
-                modules.add(cls.newInstance());
-                CATEGORYC = new Category("RandomCrystalPort", new ItemStack(Items.CLOCK));
-            } catch (IllegalAccessException | InstantiationException e) {
-                throw new RuntimeException(e);
-            }
-        });
+        try {
+            Class.forName("me.chirin.zeitgeist.modules.crystal.crash.BoatCrash");
+            Modules.registerCategory(CATEGORYC);
+        } catch (ClassNotFoundException ignored) {
+        }
     }
 
     @Override
