@@ -67,17 +67,6 @@ public class Zeitgeist extends MeteorAddon {
         // Vector
         modules.add(new NoSwing());
 
-        // ------
-        new Reflections("me.chirin.zeitgeist.modules.crystal.crash", new Scanner[0]).getSubTypesOf(Module.class).forEach(cls -> {
-            try {
-                modules.add(cls.newInstance());
-                CATEGORYC = new Category("RandomCrystalPort", new ItemStack(Items.CLOCK));
-            } catch (IllegalAccessException | InstantiationException e) {
-                throw new RuntimeException(e);
-            }
-        });
-
-
         // Tokyo
         modules.add(new Announcer());
         modules.add(new AutoTpa());
@@ -127,6 +116,16 @@ public class Zeitgeist extends MeteorAddon {
     public void onRegisterCategories() {
         Modules.registerCategory(CATEGORY);
         if (CATEGORYC != null) Modules.registerCategory(CATEGORYC);
+
+        Modules modules = Modules.get();
+        new Reflections("me.chirin.zeitgeist.modules.crystal.crash", new Scanner[0]).getSubTypesOf(Module.class).forEach(cls -> {
+            try {
+                modules.add(cls.newInstance());
+                CATEGORYC = new Category("RandomCrystalPort", new ItemStack(Items.CLOCK));
+            } catch (IllegalAccessException | InstantiationException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 
     @Override
