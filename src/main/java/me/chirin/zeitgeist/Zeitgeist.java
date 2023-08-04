@@ -44,13 +44,11 @@ public class Zeitgeist extends MeteorAddon {
 
         // ScoreboardHelper & UglyScoreboardFix
         modules.add(new ScoreboardPlus());
-
         // LiveOverflowMod
         modules.add(new LOReach());
         modules.add(new LOClipReach());
         modules.add(new LOWorldGuardBypass());
         modules.add(new NoRandomPackets());
-
         // Allah
         modules.add(new BackTP());
         modules.add(new ConsoleFlood());
@@ -64,9 +62,10 @@ public class Zeitgeist extends MeteorAddon {
         modules.add(new Sniper());
         // Wurst
         modules.add(new BuildRandom());
-
         // MeteorUtils
         modules.add(new OpenAnarchyAutoDupe());
+        // Vector
+        modules.add(new NoSwing());
 
         // ------
         new Reflections("me.chirin.zeitgeist.modules.crystal.crash", new Scanner[0]).getSubTypesOf(Module.class).forEach(cls -> {
