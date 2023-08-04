@@ -76,13 +76,13 @@ public class Zeitgeist extends MeteorAddon {
             }
         });
 
-
         // Tokyo
         modules.add(new Announcer());
         modules.add(new AutoTpa());
         modules.add(new AutoUnfriend());
         modules.add(ChatManager.INSTANCE);
         modules.add(Jukebox.INSTANCE);
+
 
         // Commands
         // Allah
@@ -98,6 +98,8 @@ public class Zeitgeist extends MeteorAddon {
         Commands.add(new HideCommand());
         Commands.add(new KillCommand());
         Commands.add(new LagCommand());
+        Commands.add(new ShriekCommand());
+        Commands.add(new ChangePlayerNameCommand());
 
         // Vector Addon
         Commands.add(new TeleportCommand());
