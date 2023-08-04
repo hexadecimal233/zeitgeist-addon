@@ -3,10 +3,11 @@
 </div>
 
 <p style="text-align: center">
-<img src="./src/main/resources/assets/zeitgeist-addon/icon.png" width=128 height=128 alt="Zeitgeist Addon">
+<img src="./src/main/resources/assets/zeitgeist-addon/icon.png" alt="Zeitgeist Addon">
 </p>
 
 An addon that contains cool features (to me) ~~skidded~~ ported from some outdated addons.
+
 
 ## Addons
 - 

@@ -100,6 +100,7 @@ public class Zeitgeist extends MeteorAddon {
         Commands.add(new LagCommand());
         Commands.add(new ShriekCommand());
         Commands.add(new ChangePlayerNameCommand());
+        Commands.add(new LoginKick());
 
         // Vector Addon
         Commands.add(new TeleportCommand());

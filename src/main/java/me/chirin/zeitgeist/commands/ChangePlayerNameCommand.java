@@ -5,9 +5,8 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import me.chirin.zeitgeist.commands.arguements.PlayerNameArgumentType;
 import me.chirin.zeitgeist.mixins.GameProfileAccessor;
 import meteordevelopment.meteorclient.commands.Command;
+import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.command.CommandSource;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
 
 import static com.mojang.brigadier.Command.SINGLE_SUCCESS;
 import static meteordevelopment.meteorclient.MeteorClient.mc;
@@ -20,10 +19,10 @@ public class ChangePlayerNameCommand extends Command {
     @Override
     public void build(LiteralArgumentBuilder<CommandSource> builder) {
         builder.then(argument("player", PlayerNameArgumentType.player()).then(argument("message", StringArgumentType.greedyString()).executes(ctx -> {
-            String pname = PlayerNameArgumentType.getPlayer(ctx, "player");
+            String playerName = PlayerNameArgumentType.getPlayer(ctx, "player");
             String name = ctx.getArgument("message", String.class).replace("&", "\247");
-            for (Entity e : mc.world.getEntities()) {
-                if (e instanceof PlayerEntity p && p.getGameProfile().getName().equals(pname)) {
+            for (AbstractClientPlayerEntity p : mc.world.getPlayers()) {
+                if (p.getGameProfile().getName().equals(playerName)) {
                     ((GameProfileAccessor) p.getGameProfile()).setName(name);
                     info("success");
                 }
