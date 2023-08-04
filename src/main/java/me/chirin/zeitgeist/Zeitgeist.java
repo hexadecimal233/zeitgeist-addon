@@ -19,7 +19,7 @@ import java.util.Scanner;
 
 public class Zeitgeist extends MeteorAddon {
     public static final Category CATEGORY = new Category("Zeitgeist", new ItemStack(Items.CLOCK));
-    public static final Category CATEGORYC = new Category("RandomCrystalPort", new ItemStack(Items.CLOCK));
+    public static Category CATEGORYC = null;
 
     @Override
     public void onInitialize() {
@@ -71,6 +71,7 @@ public class Zeitgeist extends MeteorAddon {
         new Reflections("me.chirin.zeitgeist.modules.crystal.crash", new Scanner[0]).getSubTypesOf(Module.class).forEach(cls -> {
             try {
                 modules.add(cls.newInstance());
+                CATEGORYC = new Category("RandomCrystalPort", new ItemStack(Items.CLOCK));
             } catch (IllegalAccessException | InstantiationException e) {
                 throw new RuntimeException(e);
             }
@@ -125,7 +126,7 @@ public class Zeitgeist extends MeteorAddon {
     @Override
     public void onRegisterCategories() {
         Modules.registerCategory(CATEGORY);
-        Modules.registerCategory(CATEGORYC);
+        if (CATEGORYC != null) Modules.registerCategory(CATEGORYC);
     }
 
     @Override
