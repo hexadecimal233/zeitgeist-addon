@@ -4,8 +4,9 @@ import me.chirin.zeitgeist.commands.*;
 import me.chirin.zeitgeist.hud.ImageHud;
 import me.chirin.zeitgeist.hud.MoonHud;
 import me.chirin.zeitgeist.modules.*;
-import me.chirin.zeitgeist.modules.crystalass.crash.*;
-import me.chirin.zeitgeist.modules.crystalass.misc.*;
+import me.chirin.zeitgeist.modules.crystal.crash.*;
+import me.chirin.zeitgeist.modules.crystal.misc.MassPayout;
+import me.chirin.zeitgeist.modules.crystal.misc.ServerOpNuke;
 import me.chirin.zeitgeist.modules.tokyo.*;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.commands.Commands;
@@ -26,6 +27,8 @@ public class Zeitgeist extends MeteorAddon {
 
         // My
         modules.add(new HackerDetector());
+        modules.add(new UDPFlood());
+        modules.add(new LevitatingBoat());
 
         // QOL
         modules.add(new AnyPlacer());
@@ -61,14 +64,11 @@ public class Zeitgeist extends MeteorAddon {
         // Wurst
         modules.add(new BuildRandom());
 
-        // CRYSTAL
-        modules.add(new XsDupe());
-        modules.add(new ItemFrameDupe());
-        modules.add(new BoatFling());
+        // MeteorUtils
+        modules.add(new OpenAnarchyAutoDupe());
+
         modules.add(new ServerOpNuke());
-        modules.add(new FakeHacker());
         modules.add(new MassPayout());
-        modules.add(new LeftHanded());
 
         // ------
         modules.add(new BoatCrash());
@@ -90,7 +90,6 @@ public class Zeitgeist extends MeteorAddon {
         modules.add(new JigSawCrash());
         modules.add(new TradeCrash());
         modules.add(new WorldBorderCrash());
-        modules.add(new UDPFlood());
         modules.add(new BungeeCrash());
         modules.add(new SwingCrash());
         modules.add(new AutoLagSign());
@@ -121,12 +120,9 @@ public class Zeitgeist extends MeteorAddon {
         // Vector Addon
         Commands.add(new TeleportCommand());
         Commands.add(new UUIDCommand());
-
-        // Crystal
         Commands.add(new ItemCommand());
-        Commands.add(new PingCommand());
-        Commands.add(new SubnetCalculatorCommand());
-        Commands.add(new SpoofServerBrandCommand());
+        Commands.add(new PlayerHeadCommand());
+        Commands.add(new DesyncCommand());
 
         // Tokyo
         Commands.add(new ChunkInfoCommand());
