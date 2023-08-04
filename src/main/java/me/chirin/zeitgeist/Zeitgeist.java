@@ -4,17 +4,18 @@ import me.chirin.zeitgeist.commands.*;
 import me.chirin.zeitgeist.hud.ImageHud;
 import me.chirin.zeitgeist.hud.MoonHud;
 import me.chirin.zeitgeist.modules.*;
-import me.chirin.zeitgeist.modules.crystal.crash.*;
-import me.chirin.zeitgeist.modules.crystal.misc.MassPayout;
-import me.chirin.zeitgeist.modules.crystal.misc.ServerOpNuke;
 import me.chirin.zeitgeist.modules.tokyo.*;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.commands.Commands;
 import meteordevelopment.meteorclient.systems.hud.Hud;
 import meteordevelopment.meteorclient.systems.modules.Category;
+import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import org.reflections.Reflections;
+
+import java.util.Scanner;
 
 public class Zeitgeist extends MeteorAddon {
     public static final Category CATEGORY = new Category("Zeitgeist", new ItemStack(Items.CLOCK));
@@ -67,33 +68,15 @@ public class Zeitgeist extends MeteorAddon {
         // MeteorUtils
         modules.add(new OpenAnarchyAutoDupe());
 
-        modules.add(new ServerOpNuke());
-        modules.add(new MassPayout());
-
         // ------
-        modules.add(new BoatCrash());
-        modules.add(new PositionCrash());
-        modules.add(new StorageCrash());
-        modules.add(new LecternCrash());
-        modules.add(new VehicleCrash());
-        modules.add(new BookCrash());
-        modules.add(new NullExceptionCrash());
-        modules.add(new MovementCrash());
-        modules.add(new ExceptionCrash());
-        modules.add(new EntityCrash());
-        modules.add(new CraftingCrash());
-        modules.add(new CreativeCrash());
-        modules.add(new AdvancedCrash());
-        modules.add(new SignCrash());
-        modules.add(new LagMessage());
-        modules.add(new PacketFlooder());
-        modules.add(new JigSawCrash());
-        modules.add(new TradeCrash());
-        modules.add(new WorldBorderCrash());
-        modules.add(new BungeeCrash());
-        modules.add(new SwingCrash());
-        modules.add(new AutoLagSign());
-        modules.add(new ArmorStandCrash());
+        new Reflections("me.chirin.zeitgeist.modules.crystal.crash", new Scanner[0]).getSubTypesOf(Module.class).forEach(cls -> {
+            try {
+                modules.add(cls.newInstance());
+            } catch (IllegalAccessException | InstantiationException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
 
         // Tokyo
         modules.add(new Announcer());
