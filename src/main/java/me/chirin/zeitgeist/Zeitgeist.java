@@ -116,6 +116,7 @@ public class Zeitgeist extends MeteorAddon {
         Commands.add(new LOClipCommand());
 
         // HUD
+        // My
         Hud.get().register(MoonHud.INFO);
 
         // Tokyo
