@@ -8,6 +8,6 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(GameProfile.class)
 public interface GameProfileAccessor {
     @Mutable
-    @Accessor
+    @Accessor(remap = false)
     void setName(String name);
 }

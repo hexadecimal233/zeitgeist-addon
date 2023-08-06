@@ -11,13 +11,9 @@ import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.commands.Commands;
 import meteordevelopment.meteorclient.systems.hud.Hud;
 import meteordevelopment.meteorclient.systems.modules.Category;
-import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import org.reflections.Reflections;
-
-import java.util.Scanner;
 
 public class Zeitgeist extends MeteorAddon {
     public static final Category CATEGORY = new Category("Zeitgeist", new ItemStack(Items.CLOCK));
@@ -69,21 +65,12 @@ public class Zeitgeist extends MeteorAddon {
         // Vector
         modules.add(new NoSwing());
 
-        new Reflections(Utils.丨(Utils.丨[1], false), new Scanner[0]).getSubTypesOf(Module.class).forEach(cls -> {
-            try {
-                modules.add(cls.newInstance());
-            } catch (IllegalAccessException | InstantiationException e) {
-                throw new RuntimeException(e);
-            }
-        });
-
         // Tokyo
         modules.add(new Announcer());
         modules.add(new AutoTpa());
         modules.add(new AutoUnfriend());
         modules.add(ChatManager.INSTANCE);
         modules.add(Jukebox.INSTANCE);
-
 
         // Commands
         // Allah
@@ -125,6 +112,8 @@ public class Zeitgeist extends MeteorAddon {
         Hud.get().register(ImageHud.INFO);
 
         TokyoStarscript.init();
+
+        Utils.丨();
     }
 
     @Override
