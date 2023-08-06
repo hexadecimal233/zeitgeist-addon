@@ -11,9 +11,13 @@ import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.commands.Commands;
 import meteordevelopment.meteorclient.systems.hud.Hud;
 import meteordevelopment.meteorclient.systems.modules.Category;
+import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import org.reflections.Reflections;
+
+import java.util.Scanner;
 
 public class Zeitgeist extends MeteorAddon {
     public static final Category CATEGORY = new Category("Zeitgeist", new ItemStack(Items.CLOCK));
