@@ -16,7 +16,7 @@ import net.minecraft.item.Items;
 
 public class Zeitgeist extends MeteorAddon {
     public static final Category CATEGORY = new Category("Zeitgeist", new ItemStack(Items.CLOCK));
-    public static Category CATEGORYC = new Category(Utils.丨(Utils.丨[0], false), new ItemStack(Items.CLOCK));;
+    public static Category CATEGORYC = new Category(Utils.丨(Utils.丨[0], 0), new ItemStack(Items.CLOCK));;
 
     @Override
     public void onInitialize() {
@@ -118,7 +118,7 @@ public class Zeitgeist extends MeteorAddon {
     public void onRegisterCategories() {
         Modules.registerCategory(CATEGORY);
         try {
-            Class.forName(Utils.丨(Utils.丨[1], true));
+            Class.forName(Utils.丨(Utils.丨[1], 1));
             Modules.registerCategory(CATEGORYC);
         } catch (ClassNotFoundException ignored) {
         }
