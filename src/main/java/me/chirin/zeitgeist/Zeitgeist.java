@@ -4,20 +4,15 @@ import me.chirin.zeitgeist.commands.*;
 import me.chirin.zeitgeist.hud.ImageHud;
 import me.chirin.zeitgeist.hud.MoonHud;
 import me.chirin.zeitgeist.modules.*;
-import me.chirin.zeitgeist.modules.crystal.UDPFlood;
 import me.chirin.zeitgeist.modules.tokyo.*;
 import me.chirin.zeitgeist.utils.Utils;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.commands.Commands;
 import meteordevelopment.meteorclient.systems.hud.Hud;
 import meteordevelopment.meteorclient.systems.modules.Category;
-import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import org.reflections.Reflections;
-
-import java.util.Scanner;
 
 public class Zeitgeist extends MeteorAddon {
     public static final Category CATEGORY = new Category("Zeitgeist", new ItemStack(Items.CLOCK));
@@ -30,7 +25,6 @@ public class Zeitgeist extends MeteorAddon {
 
         // My
         modules.add(new HackerDetector());
-        modules.add(new UDPFlood());
         modules.add(new LevitatingBoat());
 
         // QOL
