@@ -1,6 +1,6 @@
 package me.chirin.zeitgeist.mixins;
 
-import me.chirin.zeitgeist.modules.crystal.crash.NullExceptionCrash;
+import me.chirin.zeitgeist.modules.crystal.NullExceptionCrash;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.packet.c2s.login.LoginHelloC2SPacket;

@@ -8,7 +8,7 @@
     "ChatScreenMixin",
     "ClientPlayNetworkHandlerMixin",
     "DeathScreenMixin",
-    "GameProfileMixin",
+    "GameProfileAccessor",
     "InGameHudMixin",
     "LoginHelloC2SPacketMixin",
     "MainMixin",

@@ -3,7 +3,7 @@ package me.chirin.zeitgeist.commands;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import me.chirin.zeitgeist.commands.arguements.PlayerNameArgumentType;
-import me.chirin.zeitgeist.mixininterfaces.IGameProfile;
+import me.chirin.zeitgeist.mixins.GameProfileAccessor;
 import meteordevelopment.meteorclient.commands.Command;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.command.CommandSource;
@@ -23,7 +23,7 @@ public class ChangePlayerNameCommand extends Command {
             String name = ctx.getArgument("message", String.class).replace("&", "\247");
             for (AbstractClientPlayerEntity p : mc.world.getPlayers()) {
                 if (p.getGameProfile().getName().equals(playerName)) {
-                    ((IGameProfile) p.getGameProfile()).setName(name);
+                    ((GameProfileAccessor) p.getGameProfile()).setName(name);
                     info("success");
                 }
             }

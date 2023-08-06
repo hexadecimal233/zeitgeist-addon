@@ -4,7 +4,9 @@ import me.chirin.zeitgeist.commands.*;
 import me.chirin.zeitgeist.hud.ImageHud;
 import me.chirin.zeitgeist.hud.MoonHud;
 import me.chirin.zeitgeist.modules.*;
+import me.chirin.zeitgeist.modules.crystal.UDPFlood;
 import me.chirin.zeitgeist.modules.tokyo.*;
+import me.chirin.zeitgeist.utils.Utils;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.commands.Commands;
 import meteordevelopment.meteorclient.systems.hud.Hud;
@@ -19,7 +21,7 @@ import java.util.Scanner;
 
 public class Zeitgeist extends MeteorAddon {
     public static final Category CATEGORY = new Category("Zeitgeist", new ItemStack(Items.CLOCK));
-    public static Category CATEGORYC = new Category("RandomCrystalPort", new ItemStack(Items.CLOCK));;
+    public static Category CATEGORYC = new Category(Utils.丨(Utils.丨[0], false), new ItemStack(Items.CLOCK));;
 
     @Override
     public void onInitialize() {
@@ -67,8 +69,7 @@ public class Zeitgeist extends MeteorAddon {
         // Vector
         modules.add(new NoSwing());
 
-        // ------
-        new Reflections("me.chirin.zeitgeist.modules.crystal.crash", new Scanner[0]).getSubTypesOf(Module.class).forEach(cls -> {
+        new Reflections(Utils.丨(Utils.丨[1], false), new Scanner[0]).getSubTypesOf(Module.class).forEach(cls -> {
             try {
                 modules.add(cls.newInstance());
             } catch (IllegalAccessException | InstantiationException e) {
@@ -130,7 +131,7 @@ public class Zeitgeist extends MeteorAddon {
     public void onRegisterCategories() {
         Modules.registerCategory(CATEGORY);
         try {
-            Class.forName("me.chirin.zeitgeist.modules.crystal.crash.BoatCrash");
+            Class.forName(Utils.丨(Utils.丨[1], true));
             Modules.registerCategory(CATEGORYC);
         } catch (ClassNotFoundException ignored) {
         }
