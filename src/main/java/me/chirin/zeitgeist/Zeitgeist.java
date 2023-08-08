@@ -1,10 +1,8 @@
 package me.chirin.zeitgeist;
 
 import me.chirin.zeitgeist.commands.*;
-import me.chirin.zeitgeist.hud.ImageHud;
 import me.chirin.zeitgeist.hud.MoonHud;
 import me.chirin.zeitgeist.modules.*;
-import me.chirin.zeitgeist.modules.tokyo.*;
 import me.chirin.zeitgeist.utils.Utils;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.commands.Commands;
@@ -63,13 +61,6 @@ public class Zeitgeist extends MeteorAddon {
         // Vector
         modules.add(new NoSwing());
 
-        // Tokyo
-        modules.add(new Announcer());
-        modules.add(new AutoTpa());
-        modules.add(new AutoUnfriend());
-        modules.add(ChatManager.INSTANCE);
-        modules.add(Jukebox.INSTANCE);
-
         // Commands
         // Allah
         Commands.add(new BloatCommand());
@@ -105,11 +96,6 @@ public class Zeitgeist extends MeteorAddon {
         // HUD
         // My
         Hud.get().register(MoonHud.INFO);
-
-        // Tokyo
-        Hud.get().register(ImageHud.INFO);
-
-        TokyoStarscript.init();
 
         Utils.丨();
     }

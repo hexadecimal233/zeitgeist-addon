@@ -5,18 +5,13 @@
   "client": [
     "BatEntityMixin",
     "BetterTooltipsMixin",
-    "ChatScreenMixin",
     "ClientPlayNetworkHandlerMixin",
     "DeathScreenMixin",
     "GameProfileAccessor",
     "InGameHudMixin",
     "LoginHelloC2SPacketMixin",
     "MainMixin",
-    "MusicTrackerMixin",
-    "ScreenshotRecorderMixin",
-    "meteor.Renderer2DMixin",
-    "meteor.SpamMixin",
-    "meteor.StarscriptMixin"
+    "ScreenshotRecorderMixin"
   ],
   "injectors": {
     "defaultRequire": 1
