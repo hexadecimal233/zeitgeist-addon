@@ -86,10 +86,6 @@ public class Zeitgeist extends MeteorAddon {
         Commands.add(new PlayerHeadCommand());
         Commands.add(new DesyncCommand());
 
-        // Tokyo
-        Commands.add(new ChunkInfoCommand());
-        Commands.add(new LookAtCommand());
-
         // LO
         Commands.add(new LOClipCommand());
 
