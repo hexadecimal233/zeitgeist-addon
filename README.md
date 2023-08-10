@@ -6,5 +6,6 @@
 <img src="./src/main/resources/assets/zeitgeist-addon/icon.png" alt="Zeitgeist Addon">
 </p>
 
-An addon that contains cool features, ported from some outdated addons.
+An addon that contains cool features (my self-coded stuff), and modules ported from some outdated addons.
+
 Feel free to create an issue for removing reupdated addons.
