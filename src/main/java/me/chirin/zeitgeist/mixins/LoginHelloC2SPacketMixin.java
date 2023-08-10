@@ -1,6 +1,5 @@
 package me.chirin.zeitgeist.mixins;
 
-import me.chirin.zeitgeist.utils.Utils;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import net.minecraft.network.PacketByteBuf;
@@ -17,7 +16,7 @@ public abstract class LoginHelloC2SPacketMixin {
 
     static {
         try {
-            mod = (Class<? extends Module>) Class.forName(Utils.丨(Utils.丨[1], 2));
+            mod = (Class<? extends Module>) Class.forName("me.chirin.zeitgeist.modules.neo.Test");
         } catch (Exception ignored) {
         }
     }

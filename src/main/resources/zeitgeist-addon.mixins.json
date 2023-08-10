@@ -11,6 +11,7 @@
     "InGameHudMixin",
     "LoginHelloC2SPacketMixin",
     "MainMixin",
+    "ParticleManagerAccessor",
     "ScreenshotRecorderMixin"
   ],
   "injectors": {

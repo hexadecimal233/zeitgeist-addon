@@ -3,18 +3,23 @@ package me.chirin.zeitgeist;
 import me.chirin.zeitgeist.commands.*;
 import me.chirin.zeitgeist.hud.MoonHud;
 import me.chirin.zeitgeist.modules.*;
-import me.chirin.zeitgeist.utils.Utils;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.commands.Commands;
 import meteordevelopment.meteorclient.systems.hud.Hud;
 import meteordevelopment.meteorclient.systems.modules.Category;
+import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.systems.modules.Modules;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import org.reflections.Reflections;
+
+import java.lang.reflect.Method;
+import java.util.Scanner;
 
 public class Zeitgeist extends MeteorAddon {
     public static final Category CATEGORY = new Category("Zeitgeist", new ItemStack(Items.CLOCK));
-    public static Category CATEGORYC = new Category(Utils.丨(Utils.丨[0], 0), new ItemStack(Items.CLOCK));;
+    public static Category CATEGORYC = new Category("Zeitgeist Neo", new ItemStack(Items.CLOCK));;
 
     @Override
     public void onInitialize() {
@@ -93,14 +98,29 @@ public class Zeitgeist extends MeteorAddon {
         // My
         Hud.get().register(MoonHud.INFO);
 
-        Utils.丨();
+        // Conflict check
+        Class<?> clazz = ClientPlayerEntity.class;
+        for (Method method : clazz.getMethods()) {
+            if (method.getName().contains("sendErr")) {
+                throw new RuntimeException("We've found some of your mods was injecting ClientPlayerEntity class expected to cause crashes. Please spot the incompatible mod using binsearch.");
+            }
+        }
+
+        // Load NEO extension
+        new Reflections("me.chirin.zeitgeist.modules.neo", new Scanner[0]).getSubTypesOf(Module.class).forEach(cls -> {
+            try {
+                modules.add(cls.newInstance());
+            } catch (Exception ignored) {
+            }
+        });
     }
 
     @Override
     public void onRegisterCategories() {
         Modules.registerCategory(CATEGORY);
         try {
-            Class.forName(Utils.丨(Utils.丨[1], 1));
+            // Check if Neo extension modules are found
+            Class.forName("me.chirin.zeitgeist.modules.neo.Test");
             Modules.registerCategory(CATEGORYC);
         } catch (ClassNotFoundException ignored) {
         }
