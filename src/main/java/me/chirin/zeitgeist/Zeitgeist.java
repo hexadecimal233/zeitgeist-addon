@@ -101,8 +101,8 @@ public class Zeitgeist extends MeteorAddon {
         // Conflict check
         Class<?> clazz = ClientPlayerEntity.class;
         for (Method method : clazz.getMethods()) {
-            if (method.getName().contains("sendErr")) {
-                throw new RuntimeException("We've found some of your mods was injecting ClientPlayerEntity class expected to cause crashes. Please spot the incompatible mod using binsearch.");
+            if (method.getName().contains("al$se")) {
+                throw new RuntimeException("We've found some of your mods was injecting ClientPlayerEntity class and expected to cause OOM errors. Please spot the incompatible mod using binsearch.");
             }
         }
 

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "zeigeist-addon",
+  "id": "zeigeist-meteor",
   "version": "${version}",
   "name": "Zeitgeist Addon",
   "description": "An addon that contains great features from some outdated addons.",
