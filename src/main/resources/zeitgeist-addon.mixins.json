@@ -3,6 +3,7 @@
   "package": "me.chirin.zeitgeist.mixins",
   "compatibilityLevel": "JAVA_17",
   "client": [
+    "AbstractClientPlayerEntityMixin",
     "BatEntityMixin",
     "BetterTooltipsMixin",
     "ClientPlayNetworkHandlerMixin",

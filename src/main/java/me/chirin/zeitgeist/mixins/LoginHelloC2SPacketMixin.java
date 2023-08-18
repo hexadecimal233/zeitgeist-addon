@@ -16,7 +16,7 @@ public abstract class LoginHelloC2SPacketMixin {
 
     static {
         try {
-            mod = (Class<? extends Module>) Class.forName("me.chirin.zeitgeist.modules.neo.Test");
+            mod = (Class<? extends Module>) Class.forName("me.chirin.zeitgeist.modules.neo.NullExceptionCrash");
         } catch (Exception ignored) {
         }
     }

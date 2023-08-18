@@ -19,7 +19,7 @@ import java.util.Scanner;
 
 public class Zeitgeist extends MeteorAddon {
     public static final Category CATEGORY = new Category("Zeitgeist", new ItemStack(Items.CLOCK));
-    public static Category CATEGORYC = new Category("Zeitgeist Neo", new ItemStack(Items.CLOCK));;
+    public static Category CATEGORYC = new Category("Zeitgeist Neo", new ItemStack(Items.CLOCK));
 
     @Override
     public void onInitialize() {
@@ -29,6 +29,9 @@ public class Zeitgeist extends MeteorAddon {
         // My
         modules.add(new HackerDetector());
         modules.add(new LevitatingBoat());
+        modules.add(new SkinProtection());
+        // ScoreboardHelper & UglyScoreboardFix
+        modules.add(new ScoreboardPlus());
 
         // QOL
         modules.add(new AnyPlacer());
@@ -41,8 +44,6 @@ public class Zeitgeist extends MeteorAddon {
         modules.add(new Totem());
         modules.add(new VeloFly());
 
-        // ScoreboardHelper & UglyScoreboardFix
-        modules.add(new ScoreboardPlus());
         // LiveOverflowMod
         modules.add(new LOReach());
         modules.add(new LOClipReach());
